@@ -5,9 +5,19 @@ ruby '2.0.0'
 gem 'rails', '4.1.0'
 # Use postgresql as the database for Active Record
 gem 'pg'
+group :production do
+	gem 'rails_12factor'
+	gem 'unicorn'
+end
 
-gem 'rails_12factor', group: :production
- gem 'unicorn', group: :production
+group :development, :test do
+	gem 'rspec-rails'
+end
+
+group :test do
+	gem 'selenium-webdriver'
+	gem 'capybara'
+end
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
